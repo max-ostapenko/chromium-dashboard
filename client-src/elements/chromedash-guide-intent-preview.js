@@ -44,6 +44,13 @@ class ChromedashGuideIntentPreview extends LitElement {
           flex: 1 0 auto;
           margin-bottom: 15px;
         }
+        .inline {
+          display: inline;
+        }
+        #submit-button {
+          height: 32px;
+          float: right;
+        }
         h3 {
           margin-bottom: 10px;
         }
@@ -136,7 +143,13 @@ class ChromedashGuideIntentPreview extends LitElement {
           </p>
         </section>
         <section>
-          <h3>Send this text for your "Intent to ..." email</h3>
+          <h3 class="inline">Send this text for your "Intent to ..." email</h3>
+          <input
+            id="submit-button"
+            class="button inline"
+            type="submit"
+            value="Post directly to blink-dev"
+          />
           <chromedash-intent-template
             appTitle="${this.appTitle}"
             .feature=${this.feature}
