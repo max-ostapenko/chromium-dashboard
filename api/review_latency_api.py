@@ -23,6 +23,7 @@ from chromestatus_openapi.models.review_latency import ReviewLatency
 from google.cloud import ndb  # type: ignore
 
 from framework import basehandlers
+from framework import permissions
 from internals import slo
 from internals.core_enums import *
 from internals.core_models import FeatureEntry
@@ -38,6 +39,7 @@ PENDING_LATENCY = -2
 class ReviewLatencyAPI(basehandlers.APIHandler):
   """Implements the OpenAPI /spec_mentors path."""
 
+  @permissions.require_create_feature
   def do_get(self, **kwargs):
     """Get a list of matching spec mentors.
 
