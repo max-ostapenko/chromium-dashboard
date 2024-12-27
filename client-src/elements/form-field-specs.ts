@@ -24,6 +24,7 @@ import {
   WEB_DEV_VIEWS,
   WEBFEATURE_USE_COUNTER_TYPES,
 } from './form-field-enums';
+import {WEB_FEATURES_CHOICES} from './web-feature-constants';
 import {unambiguousStageName} from './utils';
 
 interface FieldAttrs {
@@ -481,6 +482,17 @@ export const ALL_FIELDS: Record<string, Field> = {
     attrs: {placeholder: 'Please select a Blink component'},
     help_text: html` Select the most specific component. If unsure, leave as
     "Blink".`,
+  },
+
+  web_feature: {
+    type: 'datalist',
+    required: true,
+    // TODO: fix this type issue.
+    choices: WEB_FEATURES_CHOICES,
+    label: 'Feature Group',
+    attrs: {placeholder: 'Please select a WebDX feature group'},
+    help_text: html` Select the feature this belongs to. If your feature is not listed, pick
+    "Missing feature".`,
   },
 
   category: {
